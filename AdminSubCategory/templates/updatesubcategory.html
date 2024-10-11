@@ -1,0 +1,60 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block 'title' %}
+Update SubCategory
+
+{% endblock %}
+
+{% block 'css' %}{% endblock %}
+
+{% block 'main' %}
+
+<form method="post" id="categoryForm" enctype="multipart/form-data" action="/subcategory/update/{{data.subcategory_id}}">
+    {% csrf_token %}
+    <div id="content">
+        <div class="inner">
+            <div class="row">
+                <div class="col-lg-6  col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Update SubCategory
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label id="txtname">Category Name</label>
+                                        <select class="form-control" name="txtcategory">
+                                            <option>Please select Category</option>
+                                            {% for item in catdata %}
+                                            <option {% if item.category_id == data.category_id.category_id %} selected {% endif %} value="{{item.category_id}}">{{item.category_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label id="txtname">SubCategory Name</label>
+                                        <input class="form-control" name="txtname" value="{{data.subcategory_name}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label id="txtdescription">SubCategory Description</label>
+                                        <textarea class="form-control" name="txtdescription">{{data.subcategory_description}}</textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default">Submit Button</button>
+                                    <button type="reset" class="btn btn-default">Reset Button</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+{% block 'js' %}{% endblock %}

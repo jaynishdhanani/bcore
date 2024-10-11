@@ -1,0 +1,76 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block 'title' %}
+View All City
+{% endblock %}
+
+{% block 'css' %}{% endblock %}
+
+{% block 'main' %}
+
+<div id="content">
+
+    <div class="inner">
+       
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="between">
+                            <div>
+                                All City
+                            </div>
+                            <a href="/back/city/add" class="btn btn-primary"></i>ADD</a>
+                        </div>
+
+
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>State ID</th>
+                                        <th>City Name</th>
+                                        <th>Shipping Charge</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in citydata %}
+                                    <tr class="odd gradeX">
+                                        <td>{{row.row_number}}</td>
+                                        <td>{{row.state_id.state_name}}</td>
+                                        <td>{{row.city_name}}</td>
+                                        <td>{{row.shipping_charge}}</td>
+                                        <td class="center">
+                                            <a href="/city/delete/{{row.city_id}}" class="btn btn-danger btn-xs">Delete</a>
+                                            <a href="/city/update/{{row.city_id}}" class="btn btn-primary btn-xs">Edit</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{% block 'js' %}
+<script src="{% static 'assets/plugins/dataTables/jquery.dataTables.js' %}"></script>
+<script src="{% static 'assets/plugins/dataTables/dataTables.bootstrap.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').dataTable();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'usermaster.html' %}
+{% load static %}
+{% block 'title' %}
+
+Log IN
+
+{% endblock %}
+
+{% block 'css' %}{% endblock %}
+
+{% block 'main' %}
+
+<!--------------- login-section --------------->
+<section class="login footer-padding">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+
+            {% if messages %}
+            {% for message in messages %}
+
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+
+            {% endif %}
+
+            <!-- success -->
+            {% if message.tags == 'success' %}
+            <div class="alert alert-success" role="alert">
+                {{message}}
+            </div>
+
+            {% endif %}
+
+            {% endfor %}
+            {% endif %}
+            <div class="login-section">
+                <div class="review-form">
+                    <h5 class="comment-title">Log In</h5>
+                    <div class="review-inner-form ">
+                        <div class="review-form-name">
+                            <label for="email" class="form-label">Email Address**</label>
+                            <input type="email" id="txtemail" name="txtemail" class="form-control" placeholder="Email"
+                                required>
+                        </div>
+                        <div class="review-form-name">
+                            <label for="password" class="form-label">Password*</label>
+                            <input type="password" id="txtpassword" name="txtpassword" class="form-control"
+                                placeholder="password" required>
+                        </div>
+                        <div class="review-form-name checkbox">
+                            <div class="checkbox-item">
+                                <input type="checkbox">
+                                <span class="address">
+                                    Remember Me</span>
+                            </div>
+                            <div class="forget-pass">
+                                <p>Forgot password?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-btn text-center">
+                        <button type="submit" class="shop-btn">Log In</button>
+                        <span class="shop-account">Dont't have an account ?<a href="/createaccount">Sign Up
+                                Free</a></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--------------- login-section-end --------------->
+
+{% endblock %}
+{% block 'js' %}{% endblock %}

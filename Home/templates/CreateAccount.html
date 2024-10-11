@@ -1,0 +1,60 @@
+{% extends 'usermaster.html' %}
+{% load static %}
+{% block 'title' %}
+
+Create Account
+
+{% endblock %}
+
+{% block 'css' %}{% endblock %}
+
+{% block 'main' %}
+
+<!--------------- login-section--------------->
+<section class="login account footer-padding">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="login-section account-section">
+                <div class="review-form">
+                    <h5 class="comment-title">Create Account</h5>
+                    <div class=" account-inner-form">
+                        <div class="review-form-name">
+                            <label for="fname" class="form-label">First Name*</label>
+                            <input type="text" id="fname" class="form-control" name="txtfirstname" placeholder="First Name">
+                        </div>
+                        <div class="review-form-name">
+                            <label for="lname" class="form-label">Last Name*</label>
+                            <input type="text" id="lname" class="form-control" name="txtlastname" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class=" account-inner-form">
+                        <div class="review-form-name">
+                            <label for="email" class="form-label">Email*</label>
+                            <input type="email" id="email" class="form-control" name="txtemail" placeholder="user@gmail.com">
+                        </div>
+                        <div class="review-form-name">
+                            <label for="txtpassword" class="form-label">Password*</label>
+                            <input type="text" id="txtpassword" class="form-control" name="txtpassword" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="review-form-name checkbox">
+                        <div class="checkbox-item">
+                            <input type="checkbox">
+                            <p class="remember">
+                                I agree all terms and condition in <span class="inner-text">ShopUs.</span></p>
+                        </div>
+                    </div>
+                    <div class="login-btn text-center">
+                        <button type="submit" class="shop-btn">Create an Account</button>
+                        <span class="shop-account">Already have an account ?<a href="/user/login">Log In</a></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--------------- login-section-end --------------->
+
+{% endblock %}
+{% block 'js' %}{% endblock %}

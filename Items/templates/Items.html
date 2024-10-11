@@ -1,0 +1,76 @@
+{% extends 'usermaster.html' %}
+{% load static %}
+{% block 'title' %}
+
+Items
+
+{% endblock %}
+
+{% block 'css' %}{% endblock %}
+
+{% block 'main' %}
+
+<div class="container">
+    <div class="cart-section">
+        <table class="itemtable">
+            <tbody>
+                <tr class="table-row table-top-row">
+                    <td class="table-wrapper wrapper-product">
+                        <h5 class="table-heading">PRODUCT</h5>
+                    </td>
+                    <td class="table-wrapper">
+                        <div class="table-wrapper-center">
+                            <h5 class="table-heading">PRICE</h5>
+                        </div>
+                    </td>
+                    <td class="table-wrapper">
+                        <div class="table-wrapper-center">
+                            <h5 class="table-heading">QUANTITY</h5>
+                        </div>
+                    </td>
+                    <td class="table-wrapper wrapper-total">
+                        <div class="table-wrapper-center">
+                            <h5 class="table-heading">TOTAL</h5>
+                        </div>
+                    </td>
+                    
+                </tr>
+                {% for row in itemdata %}
+                <tr class="table-row ticket-row">
+                    <td class="table-wrapper wrapper-product">
+                        <div class="wrapper">
+                            <!-- <div class="wrapper-img">
+                                <img src="./assets/images/homepage-one/product-img/product-img-1.webp" alt="img">
+                            </div> -->
+                            <div class="wrapper-content">
+                                <h5 class="heading">{{row.product_id.product_title}}</h5>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-wrapper">
+                        <div class="table-wrapper-center">
+                            <h5 class="heading">Rs. {{row.product_id.product_price}}</h5>
+                        </div>
+                    </td>
+                    <td class="table-wrapper">
+                        <div class="table-wrapper-center">
+                            <div class="quantity">
+                                <h5 class="heading">{{row.qty}}</h5>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-wrapper wrapper-total">
+                        <div class="table-wrapper-center">
+                            <h5 class="heading">Rs. {{ row.total_price }}</h5>
+                        </div>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+{% block 'js' %}{% endblock %}

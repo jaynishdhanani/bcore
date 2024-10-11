@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Razorpay Payment</title>
+</head>
+<body>
+    <h2 style="text-align: center;">Complete your Payment</h2>
+    <form action="{{ callback_url }}" method="POST" id="">
+        {% csrf_token %}
+        <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+        <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+        <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+
+        <input type="hidden" name="fname" value="{{fname}}"/>
+        <input type="hidden" name="lname" value="{{lname}}"/>
+        <input type="hidden" name="email" value="{{email}}"/>
+        <input type="hidden" name="phone" value="{{phone}}"/>
+        <input type="hidden" name="address" value="{{address}}"/>
+        <input type="hidden" name="number" value="{{number}}"/>
+        <input type="hidden" name="city" value="{{city}}"/>
+        <input type="hidden" name="shipping_charge" value="{{shipping_charge}}"/>
+        <input type="hidden" name="subtotal" value="{{subtotal}}"/>
+        <input type="hidden" name="amt" value="{{amt}}"/>
+
+
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="{{ razorpay_merchant_key }}"
+            data-amount="{{ amount }}"
+            data-currency="{{ currency }}"
+            data-order_id="{{ order_id }}"
+           
+            data-name="MUlTI SHOP"
+            data-description="Test transaction"
+            data-image="https://your_logo_url"
+            data-prefill.name="{{request.user.first_name }}"
+            data-prefill.email="{{ request.user.email }}"
+            data-theme.color="#F37254"
+        ></script>
+       
+
+    </form>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+       $(document).ready(function(){
+        $(".razorpay-payment-button").click();
+       });
+    </script>   
+</body>
+</html>

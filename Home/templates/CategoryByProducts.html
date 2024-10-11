@@ -1,0 +1,218 @@
+{% extends 'usermaster.html' %}
+{% load static %}
+{% block 'title' %}
+
+Bags
+
+{% endblock %}
+
+{% block 'css' %}{% endblock %}
+
+{% block 'main' %}
+
+<!--------------- products-sidebar-section--------------->
+<section class="product product-sidebar footer-padding">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-3">
+                <div class="sidebar" data-aos="fade-right">
+                    <div class="sidebar-section">
+                        <div class="sidebar-wrapper">
+                            <h5 class="wrapper-heading1">Product Categories</h5>
+                            <div class="sidebar-item">
+                                <ul class="sidebar-list">
+                                    {% for row in categorydata %}
+
+                                    <li>
+                                        <!-- <input type="checkbox" id="mobile" name="mobile"> -->
+                                        <a href="/category/by/products/{{row.category_id}}" for="mobile">{{ row.category_name }}</a>
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="sidebar-wrapper sidebar-range">
+                            <h5 class="wrapper-heading">Price Range</h5>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="usr">Min Value:</label>
+                                    <input type="number"name="min" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Max Value:</label>
+                                    <input type="number" name="max" class="form-control">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <div class="sidebar-wrapper">
+                            <h5 class="wrapper-heading">Brands</h5>
+                            <div class="sidebar-item">
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <input type="checkbox" id="thread" name="thread">
+                                        <label for="thread">Refined Threads
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="ethereal" name="ethereal">
+                                        <label for="ethereal">Ethereal Chic</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="yellow" name="yellow">
+                                        <label for="yellow">Yellow</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="esctasy" name="esctasy">
+                                        <label for="esctasy">Esctasy</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="urban" name="urban">
+                                        <label for="urban">Urban Hive</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="velvet" name="velvet">
+                                        <label for="velvet">Velvet Vista</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="boldly" name="boldly">
+                                        <label for="boldly">Boldly Blue</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="minted" name="minted">
+                                        <label for="minted">Minted Mode</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="ensemble" name="ensemble">
+                                        <label for="ensemble">Eclectic Ensemble</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="attire" name="attire">
+                                        <label for="attire">BraveAlchemy Attire</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="couture" name="couture">
+                                        <label for="couture">Cascade Couture</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="sidebar-wrapper">
+                            <h5 class="wrapper-heading">Color</h5>
+                            <div class="sidebar-item">
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <input type="checkbox" id="red" name="red">
+                                        <label for="red">Red</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="blue" name="blue">
+                                        <label for="blue">blue</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="navy" name="navy">
+                                        <label for="navy">Navy</label>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="sidebar-wrapper">
+                            <h5 class="wrapper-heading">Size</h5>
+                            <div class="sidebar-item">
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <input type="checkbox" id="small" name="small">
+                                        <label for="small">Small</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="medium" name="medium">
+                                        <label for="medium">Medium</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="large" name="large">
+                                        <label for="large">Large</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="xl" name="xl">
+                                        <label for="xl">XL</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="2xl" name="2xl">
+                                        <label for="2xl">2XL</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-shop-section">
+                        <span class="wrapper-subtitle">TRENDY</span>
+                        <h5 class="wrapper-heading">Best wireless Shoes</h5>
+                        <a href="seller-sidebar.html" class="shop-btn deal-btn">Shop Now </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="product-sidebar-section" data-aos="fade-up">
+                    <div class="row g-5">
+                        <div class="col-lg-12">
+                            <div class="product-sorting-section">
+                                <div class="result">
+                                    <p>Showing <span>1-16 of 66 results</span></p>
+                                </div>
+                                <div class="product-sorting">
+                                    <span class="product-sort">Sort by:</span>
+                                    <div class="product-list">
+                                        <span class="default">Default</span>
+                                        <span>
+                                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1L5 5L9 1" stroke="#9A9A9A" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% for row in productData %}
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="product-wrapper" data-aos="fade-up">
+                                <div class="product-img">
+                                    <img src="{{row.product_image}}" alt="product-img">
+
+                                </div>
+                                <div class="product-info">
+
+                                    <div class="product-description">
+                                        <a href="/product/info/{{row.product_id}}" class="product-details">
+                                            {{ row.product_title}}
+                                        </a>
+                                        <div class="price">
+                                            <span class="new-price">Rs. {{ row.product_price}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-cart-btn">
+                                    <a href="/addtocartsingle/{{row.product_id}}" class="product-btn">Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--------------- products-sidebar-section-end--------------->
+
+{% endblock %}
+{% block 'js' %}{% endblock %}
