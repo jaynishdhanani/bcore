@@ -20,4 +20,5 @@ urlpatterns = [
     path('',include('ChangePassword.urls')),
     path('',include('Slider.urls')),
     path('',include('MyEmail.urls')),
+    path('',include('Api.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
