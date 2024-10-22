@@ -12,6 +12,7 @@ urlpatterns = [
     path('',include('AdminProduct.urls')),
     path('',include('AdminState.urls')),
     path('',include('AdminCity.urls')),
+    path('',include('AdminEmployee.urls')),
     path('',include('Home.urls')),
     path('',include('Cart.urls')),
     path('',include('Checkout.urls')),

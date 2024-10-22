@@ -10,6 +10,7 @@ class Order(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
+    status = models.CharField(max_length=15,default=None)
     address = models.TextField()
     city_id = models.ForeignKey(City,to_field='city_id',on_delete=models.CASCADE,default=None)
     zipcode = models.CharField(max_length=10)

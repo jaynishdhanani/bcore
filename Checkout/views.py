@@ -86,6 +86,7 @@ def createOrder(request):
     obj.shipping_charge_order = shipping_charge_order
     obj.subtotal_order = subtotal_order
     obj.finaltotal_order = finaltotal_order
+    obj.status = 'pending'
 
     obj.save()
 
